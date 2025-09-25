@@ -125,14 +125,12 @@ TBitField TBitField::operator|(const TBitField &bf) // операция "или"
     int maxLen = (BitLen > bf.BitLen) ? BitLen : bf.BitLen;
     TBitField result(maxLen);
 
-    // Копируем биты из текущего объекта
     for (int i = 0; i < BitLen; i++) {
         if (GetBit(i)) {
             result.SetBit(i);
         }
     }
 
-    // Копируем биты из второго объекта
     for (int i = 0; i < bf.BitLen; i++) {
         if (bf.GetBit(i)) {
             result.SetBit(i);
@@ -144,13 +142,11 @@ TBitField TBitField::operator|(const TBitField &bf) // операция "или"
 
 TBitField TBitField::operator&(const TBitField &bf) // операция "и"
 {
-    int minLen = (BitLen < bf.BitLen) ? BitLen : bf.BitLen;
-    TBitField result(minLen);
-
+    int maxLen = (BitLen > bf.BitLen) ? BitLen : bf.BitLen;
+    int minLen = (MemLen < bf.MemLen) ? MemLen : bf.MemLen;
+    TBitField result(maxLen);
     for (int i = 0; i < minLen; i++) {
-        if (GetBit(i) && bf.GetBit(i)) {
-            result.SetBit(i);
-        }
+        result.pMem[i] = pMem[i] & bf.pMem[i];
     }
 
     return result;
