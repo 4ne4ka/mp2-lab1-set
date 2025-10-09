@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\opaqu\OneDrive\Desktop\glass\mp2-lab1-set\trafficlight\Road.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\opaqu\OneDrive\Desktop\glass\mp2-lab1-set\trafficlight\Traffics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\opaqu\OneDrive\Desktop\glass\mp2-lab1-set\trafficlight\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\opaqu\OneDrive\Desktop\glass\mp2-lab1-set\trafficlight\Road.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\opaqu\OneDrive\Desktop\glass\mp2-lab1-set\trafficlight\Traffics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\opaqu\OneDrive\Desktop\glass\mp2-lab1-set\trafficlight\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{27B2CDBF-E1D1-341D-92CE-F9506EE9ABF9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{98FB1D12-A39C-39AE-BBA5-D5F6324C3251}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

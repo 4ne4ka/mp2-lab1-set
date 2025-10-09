@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/opaqu/OneDrive/Desktop/glass/mp2-lab1-set/sln/cmake_install.cmake",
+		"C:/Users/opaqu/OneDrive/Desktop/glass/mp2-lab1-set/sln/src/cmake_install.cmake",
+		"C:/Users/opaqu/OneDrive/Desktop/glass/mp2-lab1-set/sln/samples/cmake_install.cmake",
+		"C:/Users/opaqu/OneDrive/Desktop/glass/mp2-lab1-set/sln/gtest/cmake_install.cmake",
+		"C:/Users/opaqu/OneDrive/Desktop/glass/mp2-lab1-set/sln/test/cmake_install.cmake",
+		"C:/Users/opaqu/OneDrive/Desktop/glass/mp2-lab1-set/sln/trafficlight/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

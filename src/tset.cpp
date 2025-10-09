@@ -20,12 +20,12 @@ TSet::TSet(int mp) : BitField(mp), MaxPower(mp)
 }
 
 // конструктор копирования
-TSet::TSet(const TSet &s) : BitField(s.BitField), MaxPower(s.MaxPower)
+TSet::TSet(const TSet& s) : BitField(s.BitField), MaxPower(s.MaxPower)
 {
 }
 
 // конструктор преобразования типа
-TSet::TSet(const TBitField &bf) : BitField(bf), MaxPower(bf.GetLength())
+TSet::TSet(const TBitField& bf) : BitField(bf), MaxPower(bf.GetLength())
 {
 }
 
@@ -65,7 +65,7 @@ void TSet::DelElem(const int Elem) // исключение элемента мн
 
 // теоретико-множественные операции
 
-TSet& TSet::operator=(const TSet &s) // присваивание
+TSet& TSet::operator=(const TSet& s) // присваивание
 {
     if (this == &s) return *this;
     MaxPower = s.MaxPower;
@@ -73,23 +73,23 @@ TSet& TSet::operator=(const TSet &s) // присваивание
     return *this;
 }
 
-int TSet::operator==(const TSet &s) const // сравнение
+int TSet::operator==(const TSet& s) const // сравнение
 {
     return (MaxPower == s.MaxPower && BitField == s.BitField);
 }
 
-int TSet::operator!=(const TSet &s) const // сравнение
+int TSet::operator!=(const TSet& s) const // сравнение
 {
     return !(*this == s);
 }
 
-TSet TSet::operator+(const TSet &s) // объединение
+TSet TSet::operator+(const TSet& s) // объединение
 {
     int maxpwr = (MaxPower > s.MaxPower) ? MaxPower : s.MaxPower;
     TSet result(maxpwr);
     result.BitField = BitField | s.BitField;
     return result;
-    
+
 }
 
 TSet TSet::operator+(const int Elem) // объединение с элементом
@@ -106,26 +106,25 @@ TSet TSet::operator-(const int Elem) // разность с элементом
     return result;
 }
 
-TSet TSet::operator*(const TSet &s) // пересечение
+TSet TSet::operator*(const TSet& s) // пересечение
 {
     int minpwr = (MaxPower < s.MaxPower) ? MaxPower : s.MaxPower;
-    TSet result(minpwr);
+    int maxpwr = (MaxPower > s.MaxPower) ? MaxPower : s.MaxPower;
+    TSet result(maxpwr);
 
     if (minpwr > 0) {
-        // Создаем временные битовые поля одинакового размера
         TBitField bf1(minpwr);
         TBitField bf2(minpwr);
 
-        // Копируем биты из исходных множеств (только общую часть)
         for (int i = 0; i < minpwr; i++) {
             if (this->IsMember(i)) bf1.SetBit(i);
             if (s.IsMember(i)) bf2.SetBit(i);
         }
 
-        // Применяем AND
         result.BitField = bf1 & bf2;
     }
     return result;
+
 }
 
 TSet TSet::operator~(void) // дополнение
@@ -142,10 +141,26 @@ TSet TSet::operator~(void) // дополнение
 
 istream &operator>>(istream &istr, TSet &s) // ввод
 {
+    for (int i = 0; i < s.MaxPower; i++) {
+        int elem;
+        istr >> elem;
+        if (elem == 1) {
+            s.InsElem(i);
+        }
+        else {
+            s.DelElem(i);
+        }
+    }
     return istr;
 }
 
 ostream& operator<<(ostream &ostr, const TSet &s) // вывод
 {
+    ostr << s.GetMaxPower() << "   ";
+    for (int i = 0; i < s.MaxPower; i++) {
+        if (s.IsMember(i)) {
+            ostr << i << " ";
+        }
+    }
     return ostr;
 }
