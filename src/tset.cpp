@@ -6,11 +6,12 @@
 // Множество - реализация через битовые поля
 
 #include "tset.h"
-
+#include <math.h>;
 // Fake variables used as placeholders in tests
 static const int FAKE_INT = -1;
 static TBitField FAKE_BITFIELD(1);
 static TSet FAKE_SET(1);
+
 
 TSet::TSet(int mp) : BitField(mp), MaxPower(mp)
 {
@@ -139,7 +140,7 @@ TSet TSet::operator~(void) // дополнение
 
 // перегрузка ввода/вывода
 
-istream &operator>>(istream &istr, TSet &s) // ввод
+istream& operator>>(istream& istr, TSet& s) // ввод
 {
     for (int i = 0; i < s.MaxPower; i++) {
         int elem;
@@ -154,7 +155,7 @@ istream &operator>>(istream &istr, TSet &s) // ввод
     return istr;
 }
 
-ostream& operator<<(ostream &ostr, const TSet &s) // вывод
+ostream& operator<<(ostream& ostr, const TSet& s) // вывод
 {
     ostr << s.GetMaxPower() << "   ";
     for (int i = 0; i < s.MaxPower; i++) {
