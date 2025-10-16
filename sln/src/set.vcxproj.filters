@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\src\tbitfield.cpp">
+    <ClCompile Include="C:\Users\opaqu\Desktop\mp2-lab1-set\src\tbitfield.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\src\tset.cpp">
+    <ClCompile Include="C:\Users\opaqu\Desktop\mp2-lab1-set\src\tset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\include\tbitfield.h">
+    <ClInclude Include="C:\Users\opaqu\Desktop\mp2-lab1-set\include\tbitfield.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\include\tset.h">
+    <ClInclude Include="C:\Users\opaqu\Desktop\mp2-lab1-set\include\tset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\src\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\opaqu\Desktop\mp2-lab1-set\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{98871011-AC72-3A5C-A8BD-9BBD027B5901}</UniqueIdentifier>
+      <UniqueIdentifier>{0D64A0D5-F1A5-3D6B-9081-95E3B425EAA7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{4AEE3CF4-20B8-3E6E-A2AB-B89D275CCA69}</UniqueIdentifier>
+      <UniqueIdentifier>{EF29D718-AEDC-32B2-9AA3-808B29843BD0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

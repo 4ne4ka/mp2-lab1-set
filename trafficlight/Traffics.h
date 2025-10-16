@@ -1,10 +1,11 @@
 #include <iostream>
 #include <stdint.h>
-#include "tbitfield.h"
+#include "tset.h"
 
 class TrafficLight {
 protected:
-    TBitField color;
+    TSet color;
+    //TBitField color;
 public:
 
     virtual bool isRed() = 0;
@@ -15,6 +16,8 @@ public:
     TrafficLight(int size) : color(size) {}
     virtual ~TrafficLight() = default;
 
+    void setColor(int stateMask);
+    bool getColor(int stateMask) const;
 };
 
 class TrafficP : public TrafficLight {
