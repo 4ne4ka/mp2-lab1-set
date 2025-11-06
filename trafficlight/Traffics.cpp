@@ -2,9 +2,9 @@
 
 using namespace std;
 
-static const int GREEN_MASK = 1;  // 0001
-static const int YELLOW_MASK = 2; // 0010  
-static const int RED_MASK = 4; // 0100
+static const int GREEN_MASK = 0;  // 001
+static const int YELLOW_MASK = 1; // 010  
+static const int RED_MASK = 2; // 100
 
 
 void TrafficLight::setColor(int stateMask) {
@@ -18,47 +18,49 @@ void TrafficLight::setColor(int stateMask) {
     }
 }
 
-bool TrafficLight::getColor(int stateMask) const {
-    for (int i = 0; i < color.GetMaxPower(); i++) {
-        bool bitSet = color.IsMember(i);
-        bool maskBit = stateMask & (1 << i);
 
-        if (maskBit && !bitSet) return false;
-        if (!maskBit && bitSet) return false;
-    }
-    return true;
+bool TrafficLight::isBitSet(int bitPosition) const {
+    return color.IsMember(bitPosition);
 }
-
 
 TrafficP::TrafficP() : TrafficLight(3) {
     setColor(1 << GREEN_MASK);
 }
 bool TrafficP::isRed() {
-    return getColor(1 << RED_MASK) || getColor(1 << YELLOW_MASK);
+    return isBitSet(RED_MASK) || isBitSet(YELLOW_MASK);
 }
 
 bool TrafficP::isYellow() {
-    return getColor(1 << YELLOW_MASK);
+    return isBitSet(YELLOW_MASK);
 }
 
 bool TrafficP::isGreen() {
-    return getColor(1 << GREEN_MASK);
-
+    return isBitSet(GREEN_MASK);
 }
 
 void TrafficP::next() {
     if (isGreen()) {
-        setColor(1 << YELLOW_MASK);    // 0010 - зеленый -> желтый
+        setColor(1 << YELLOW_MASK);
     }
     else if (isYellow()) {
-        setColor(1 << RED_MASK);       // 0100 - желтый -> красный
+        setColor(1 << RED_MASK);
     }
     else {
-        setColor(1 << GREEN_MASK);     // 0001 - красный -> зеленый
+        setColor(1 << GREEN_MASK);
     }
 }
 
 void TrafficP::print() {
+    string bitString = "";
+    for (int i = color.GetMaxPower() - 1; i >= 0; i--) {
+        if (color.IsMember(i)) {
+            bitString += "1";
+        }
+        else {
+            bitString += "0";
+        }
+    }
+    cout << bitString << "    ";
     if (isGreen()) cout << "pesh: Green" << endl;
     else cout << "pesh: Red" << endl;
 }
@@ -67,31 +69,41 @@ TrafficA::TrafficA() : TrafficLight(3) {
 }
 
 bool TrafficA::isRed() {
-    return getColor(1 << RED_MASK);
+    return isBitSet(RED_MASK);
 }
 
 bool TrafficA::isYellow() {
-    return getColor(1 << YELLOW_MASK);
+    return isBitSet(YELLOW_MASK);
 }
 
 bool TrafficA::isGreen() {
-    return getColor(1 << GREEN_MASK);
+    return isBitSet(GREEN_MASK);
 }
 
 void TrafficA::next() {
     if (isGreen()) {
-        setColor(1 << YELLOW_MASK);    // 0010 - зеленый -> желтый
+        setColor(1 << YELLOW_MASK);
     }
     else if (isYellow()) {
-        setColor(1 << RED_MASK);       // 0100 - желтый -> красный
+        setColor(1 << RED_MASK);
     }
     else {
-        setColor(1 << GREEN_MASK);     // 0001 - красный -> зеленый
+        setColor(1 << GREEN_MASK);
     }
 
 }
 
 void TrafficA::print() {
+    string bitString = "";
+    for (int i = color.GetMaxPower() - 1; i >= 0; i--) {
+        if (color.IsMember(i)) {
+            bitString += "1";
+        }
+        else {
+            bitString += "0";
+        }
+    }
+    cout << bitString << "    ";
     if (isGreen()) cout << "avt: Green" << endl;
     else if (isYellow()) cout << "avt: Yellow" << endl;
     else cout << "avt: Red" << endl;

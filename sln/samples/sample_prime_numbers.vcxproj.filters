@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\opaqu\Desktop\mp2-lab1-set\samples\sample_prime_numbers.cpp">
+    <ClCompile Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\samples\sample_prime_numbers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\opaqu\Desktop\mp2-lab1-set\samples\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\opaqu\OneDrive\Desktop\mp2-lab1-set\samples\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{EF29D718-AEDC-32B2-9AA3-808B29843BD0}</UniqueIdentifier>
+      <UniqueIdentifier>{4AEE3CF4-20B8-3E6E-A2AB-B89D275CCA69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -7,7 +7,6 @@ protected:
     TSet color;
     //TBitField color;
 public:
-
     virtual bool isRed() = 0;
     virtual bool isYellow() = 0;
     virtual bool isGreen() = 0;
@@ -18,6 +17,7 @@ public:
 
     void setColor(int stateMask);
     bool getColor(int stateMask) const;
+    bool isBitSet(int bitPosition) const;
 };
 
 class TrafficP : public TrafficLight {
