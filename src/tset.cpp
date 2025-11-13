@@ -109,23 +109,10 @@ TSet TSet::operator-(const int Elem) // разность с элементом
 
 TSet TSet::operator*(const TSet& s) // пересечение
 {
-    int minpwr = (MaxPower < s.MaxPower) ? MaxPower : s.MaxPower;
     int maxpwr = (MaxPower > s.MaxPower) ? MaxPower : s.MaxPower;
     TSet result(maxpwr);
-
-    if (minpwr > 0) {
-        TBitField bf1(minpwr);
-        TBitField bf2(minpwr);
-
-        for (int i = 0; i < minpwr; i++) {
-            if (this->IsMember(i)) bf1.SetBit(i);
-            if (s.IsMember(i)) bf2.SetBit(i);
-        }
-
-        result.BitField = bf1 & bf2;
-    }
+    result.BitField = BitField & s.BitField;
     return result;
-
 }
 
 TSet TSet::operator~(void) // дополнение
@@ -142,26 +129,12 @@ TSet TSet::operator~(void) // дополнение
 
 istream& operator>>(istream& istr, TSet& s) // ввод
 {
-    for (int i = 0; i < s.MaxPower; i++) {
-        int elem;
-        istr >> elem;
-        if (elem == 1) {
-            s.InsElem(i);
-        }
-        else {
-            s.DelElem(i);
-        }
-    }
+    istr >> s.BitField;
     return istr;
 }
 
 ostream& operator<<(ostream& ostr, const TSet& s) // вывод
 {
-    ostr << s.GetMaxPower() << "   ";
-    for (int i = 0; i < s.MaxPower; i++) {
-        if (s.IsMember(i)) {
-            ostr << i << " ";
-        }
-    }
+    ostr << s.BitField;
     return ostr;
 }
